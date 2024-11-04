@@ -1,0 +1,8 @@
+#!/bin/csh
+
+setenv DATA_HOST bob.atmos.washington.edu
+setenv DATA_DIR /home/disk/bob/impacts/data
+#CIDD -p https://impacts.atmos.washington.edu/projDir/display/params/CIDD.uw
+#CIDD -p https://impacts.atmos.washington.edu/~brodzik/impacts/CIDD.uw
+#CIDD -p /home/snowband/brodzik/Downloads/NCAR/CIDD.impacts_remote
+CIDD -p /home/disk/bob/impacts/git/lrose-impacts/projDir/display/params/CIDD.impacts_remote

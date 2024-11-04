@@ -1,0 +1,13 @@
+#! /bin/csh -f
+
+#set env vars
+setenv DATA_HOST bob.atmos.washington.edu
+setenv DATA_DIR /home/disk/bob/impacts
+setenv PROJ_DIR /home/disk/bob/impacts/git/lrose-impacts/projDir
+source $PROJ_DIR/system/params/project_info
+
+#set font path
+$PROJ_DIR/lrose/scripts/set_font_path
+
+CIDD -p $PROJ_DIR/display/params/CIDD.ops >& /dev/null &
+

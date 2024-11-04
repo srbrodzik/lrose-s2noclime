@@ -1,0 +1,38 @@
+#!/bin/csh
+
+Radx2Grid -v -params ../params/Radx2Grid.kcle.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+Radx2Grid -v -params ../params/Radx2Grid.kdtx.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+Radx2Grid -v -params ../params/Radx2Grid.kdvn.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+Radx2Grid -v -params ../params/Radx2Grid.kgrb.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+Radx2Grid -v -params ../params/Radx2Grid.kgrr.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+Radx2Grid -v -params ../params/Radx2Grid.kiln.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+Radx2Grid -v -params ../params/Radx2Grid.kilx.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+Radx2Grid -v -params ../params/Radx2Grid.kind.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+Radx2Grid -v -params ../params/Radx2Grid.kiwx.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+Radx2Grid -v -params ../params/Radx2Grid.klot.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+Radx2Grid -v -params ../params/Radx2Grid.kmkx.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+Radx2Grid -v -params ../params/Radx2Grid.kvwx.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+

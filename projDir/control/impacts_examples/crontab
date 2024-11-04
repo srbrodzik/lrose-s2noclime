@@ -1,0 +1,125 @@
+######################################################################
+# IMPACTS crontab
+# NOTE: Use Pacific time in entries
+#
+####################################################################
+####################################################################
+# SYSTEM
+#
+# Process restarters
+*/1 * * * *  csh -c "start_auto_restart_check_cron" 1> /dev/null 2> /dev/null
+*/1 * * * *  csh -c "start_procmap_check_cron"      1> /dev/null 2> /dev/null
+#
+# Build links to log date subdirs
+*/5 * * * *   csh -c "start_build_logdir_links" 1> /dev/null 2> /dev/null
+#
+####################################################################
+#
+# Stacy's image generation, etc
+#
+## UPPER AIR
+## Running next line on updraft until metpy issue is fixed
+##25 * * * * /home/disk/bob/impacts/bin/run.get_skewt_new.csh > /home/disk/meso-home/meso/cron/logs/skewt.log 2>&1
+#30 * * * * /home/disk/bob/impacts/bin/run.get_sbu_soundings.csh > /home/disk/meso-home/meso/cron/logs/sbu_sndgs.log 2>&1
+#00 */12 * * * /home/disk/bob/impacts/bin/run.get_upper_air.csh >> /home/disk/meso-home/meso/cron/logs/ucar_upperair.log 2>&1
+##
+## SURFACE
+#00 * * * * /home/disk/bob/impacts/bin/run.get_sfc_anal.csh >> /home/disk/meso-home/meso/cron/logs/sfc_anal.log 2>&1
+#45 * * * * /home/disk/bob/impacts/bin/run.get_sfc_metars.csh >> /home/disk/meso-home/meso/cron/logs/metars.log 2>&1
+#05 * * * * /home/disk/bob/impacts/bin/run.get_noaa_winwx_plots.csh >> /home/disk/meso-home/meso/cron/logs/noaa_winwx.log 2>&1
+#05 * * * * /home/disk/bob/impacts/bin/run.get_noaa_snow_precip_24hr.csh >> /home/disk/meso-home/meso/cron/logs/noaa_snow.log 2>&1
+#00 * * * * /home/disk/bob/impacts/bin/run.get_extrema_max.csh >> /home/disk/meso-home/meso/cron/logs/extrema_max.log 2>&1
+#00 * * * * /home/disk/bob/impacts/bin/run.get_extrema_min.csh >> /home/disk/meso-home/meso/cron/logs/extrema_min.log 2>&1
+#0 */8 * * * /home/disk/bob/impacts/bin/run.get_nasa_uconn_images.csh >> /home/disk/meso-home/meso/cron/logs/nasa_uconn_image.log 2>&1
+#0 */8 * * * /home/disk/bob/impacts/bin/run.get_nasa_uconn_data.csh >> /home/disk/meso-home/meso/cron/logs/nasa_uconn_data.log 2>&1
+#0 */8 * * * /home/disk/bob/impacts/bin/run.get_albany_plots.csh >> /home/disk/meso-home/meso/cron/logs/albany.log 2>&1
+#--------
+#5 * * * * /home/disk/bob/impacts/bin/run.NYS_mesonet_save.csh >>  /home/disk/meso-home/meso/cron/logs/nysm_std_save.log 2>&1
+#0 */1 * * * /home/disk/bob/impacts/bin/run.NYS_mesonet_plot.csh >>  /home/disk/meso-home/meso/cron/logs/nysm_std_plot.log 2>&1
+#5 * * * * /home/disk/bob/impacts/bin/run.NYS_profiler_save.csh >>  /home/disk/meso-home/meso/cron/logs/nysm_prof_save.log 2>&1
+#6 */1 * * * /home/disk/bob/impacts/bin/run.NYS_profiler_plot.csh >>  /home/disk/meso-home/meso/cron/logs/nysm_prof_plot.log 2>&1
+#0 * * * * /home/disk/bob/impacts/bin/run.ASOS_get_site_data_from_ISU.csh >>  /home/disk/meso-home/meso/cron/logs/asos_save.log 2>&1
+## Need to run next job on updraft due to issues with metpy
+##0 * * * * /home/disk/bob/impacts/bin/run.ASOS_plot_data_hourly_ISU.csh >>  /home/disk/meso-home/meso/cron/logs/asos_plot.log 2>&1
+##
+## MODEL
+#00 * * * * /home/disk/bob/impacts/bin/run.get_ecmwf_plots.csh >> /home/disk/meso-home/meso/cron/logs/ecmwf.log 2>&1
+#15 * * * * /home/disk/bob/impacts/bin/run.get_gfs_plots.csh >> /home/disk/meso-home/meso/cron/logs/gfs.log 2>&1
+#30 * * * * /home/disk/bob/impacts/bin/run.get_nam_plots.csh >> /home/disk/meso-home/meso/cron/logs/nam.log 2>&1
+#45 * * * * /home/disk/bob/impacts/bin/run.get_hrrr_plots.csh >> /home/disk/meso-home/meso/cron/logs/hrrr.log 2>&1
+## Check to see if these experimental HRRR_01km runs are running:
+#40 02 * * * /home/disk/bob/impacts/bin/run.get_hrrr_1km_plots_rev_03Z.csh >> /home/disk/meso-home/meso/cron/logs/hrrr01km_03.log 2>&1
+#40 14 * * * /home/disk/bob/impacts/bin/run.get_hrrr_1km_plots_rev_15Z.csh >> /home/disk/meso-home/meso/cron/logs/hrrr01km_15.log 2>&1
+#20 3,9,15,21 * * * /home/disk/bob/impacts/bin/run.get_sref_spaghetti_plots.csh >> /home/disk/meso-home/meso/cron/logs/sref_spaghetti.log 2>&1
+#20 * * * * /home/disk/bob/impacts/bin/run.get_wrf_gfs_36km_plots.csh >> /home/disk/meso-home/meso/cron/logs/wrf_gfs_36km.log 2>&1
+#30 * * * * /home/disk/bob/impacts/bin/run.get_wrf_gfs_12km_plots.csh >> /home/disk/meso-home/meso/cron/logs/wrf_gfs_12km.log 2>&1
+#40 * * * * /home/disk/bob/impacts/bin/run.get_wrf_gfs_04km_plots.csh >> /home/disk/meso-home/meso/cron/logs/wrf_gfs_04km.log 2>&1
+##
+## RADAR
+#15,45 * * * * /home/disk/bob/impacts/bin/run.get_nexrad_plots.csh >>  /home/disk/meso-home/meso/cron/logs/nexrad_plots.log 2>&1
+#15,45 * 9 2 * /home/disk/bob/impacts/bin/run.get_cmich_plots.csh >>  /home/disk/meso-home/meso/cron/logs/cmich_plots.log 2>&1
+#10,40 * * * * /home/disk/bob/impacts/bin/run.get_npol_images_new.csh >>  /home/disk/meso-home/meso/cron/logs/npol_images.log 2>&1
+#20 */8 * * * /home/disk/bob/impacts/bin/run.get_sbu_images.csh >> /home/disk/meso-home/meso/cron/logs/sbu_images.log 2>&1
+#20 */8 * * * /home/disk/bob/impacts/bin/run.get_sbu_data.csh >> /home/disk/meso-home/meso/cron/logs/sbu_data.log 2>&1
+#*/10 * * * * /home/disk/bob/impacts/bin/run.MrmsGribIngest_v2.csh >> /home/disk/meso-home/meso/cron/logs/mrms_ingest.log 2>&1
+#*/10 * * * * /home/disk/bob/impacts/bin/run.MrmsGribIngestZDR_v2.csh >> /home/disk/meso-home/meso/cron/logs/mrms_ingest_zdr.log 2>&1
+#*/10 * * * * /home/disk/bob/impacts/bin/run.MrmsGribIngestRhoHV_v2.csh >> /home/disk/meso-home/meso/cron/logs/mrms_ingest_rhohv.log 2>&1
+#*/10 * * * * /home/disk/bob/impacts/bin/run.convert2DBaseGribToMDV.csh >> /home/disk/meso-home/meso/cron/logs/mrms_ingest_base_refl.log 2>&1
+#*/10 * * * * /home/disk/bob/impacts/bin/run.convert2DCompGribToMDV.csh >> /home/disk/meso-home/meso/cron/logs/mrms_ingest_comp_refl.log 2>&1
+#*/10 * * * * /home/disk/bob/impacts/bin/run.MrmsGribIngestKdp_v2.csh >> /home/disk/meso-home/meso/cron/logs/mrms_ingest_kdp.log 2>&1
+#*/10 * * * * /home/disk/bob/impacts/bin/run.MrmsGribIngestSpw_v2.csh >> /home/disk/meso-home/meso/cron/logs/mrms_ingest_spw.log 2>&1
+###*/5 0-12 19 2 * /home/disk/bob/impacts/bin/run.get_canadian_radar_images.csh >> /home/disk/meso-home/meso/cron/logs/canadian_radar.log 2>&1
+##
+## SATELLITE
+#00 00 * * * /home/disk/bob/impacts/bin/run.get_gpm_overpasses_east.csh >> /home/disk/meso-home/meso/cron/logs/gpm_overpasses_east.log 2>&1
+#00 00 * * * /home/disk/bob/impacts/bin/run.get_gpm_overpasses_west.csh >> /home/disk/meso-home/meso/cron/logs/gpm_overpasses_west.log 2>&1
+#00 00 * * * /home/disk/bob/impacts/bin/run.get_gpm_overpasses_cape.csh >> /home/disk/meso-home/meso/cron/logs/gpm_overpasses_cape.log 2>&1
+#00 00 * * * /home/disk/bob/impacts/bin/run.get_gpm_overpasses_d3r.csh >> /home/disk/meso-home/meso/cron/logs/gpm_overpasses_d3r.log 2>&1
+#*/5 * * * * /home/disk/bob/impacts/bin/run.get_goes_meso_plots.csh 1 >> /home/disk/meso-home/meso/cron/logs/goes_meso.log 2>&1
+#*/5 * * * * /home/disk/bob/impacts/bin/run.get_goes_meso_plots.csh 2 >> /home/disk/meso-home/meso/cron/logs/goes_meso2.log 2>&1
+#*/15 * * * * /home/disk/bob/impacts/bin/run.get_goes_sat_plots.csh >> /home/disk/meso-home/meso/cron/logs/goes_sat.log 2>&1
+#00 */3 * * * /home/disk/bob/impacts/bin/run.get_goes_sat_upperair_plots.csh >> /home/disk/meso-home/meso/cron/logs/goes_sat_upperair.log 2>&1
+##
+## AIRCRAFT
+## Uncomment the next lines when ER2 is flying
+##*/5 * 27-28 2 * /home/disk/bob/impacts/bin/run.get_er2_rt_images.csh >> /home/disk/meso-home/meso/cron/logs/er2_rt.log 2>&1
+###*/10 * * * * /home/disk/bob/impacts/bin/run.get_er2_mvis.csh >> /home/disk/meso-home/meso/cron/logs/mvis.log
+## Uncomment the next line when P-3 is flying and might use dropsondes
+##*/1 * * * * /home/disk/bob/impacts/bin/run.get_dropsonde_images.csh >> /home/disk/meso-home/meso/cron/logs/dropsonde.log
+## Uncomment next lines when P3 is flying (make mod to run script first)
+##* * * * * /home/disk/bob/impacts/bin/kml_create/run.make_kml_p3_fltTrk_fill_v5_rt_15min.csh >> /home/disk/meso-home/meso/cron/logs/kml_p3_15.log 2>&1
+##* * * * * /home/disk/bob/impacts/bin/kml_create/run.make_kml_p3_fltTrk_fill_v5_rt_30min.csh >> /home/disk/meso-home/meso/cron/logs/kml_p3_30.log 2>&1
+##* * * * * /home/disk/bob/impacts/bin/kml_create/run.make_kml_p3_fltTrk_fill_v5_rt_60min.csh >> /home/disk/meso-home/meso/cron/logs/kml_p3_60.log 2>&1
+##* * * * * /home/disk/bob/impacts/bin/kml_create/run.make_kml_p3_fltTrk_fill_v6_rt.csh >> /home/disk/meso-home/meso/cron/logs/kml_p3_full.log 2>&1
+## Uncomment next lines when ER2 is flying (make mod to run scripts first)
+##* * * * * /home/disk/bob/impacts/bin/kml_create/run.make_kml_er2_fltTrk_fill_v5_rt_15min.csh >> /home/disk/meso-home/meso/cron/logs/kml_er2_15.log 2>&1
+##* * * * * /home/disk/bob/impacts/bin/kml_create/run.make_kml_er2_fltTrk_fill_v5_rt_30min.csh >> /home/disk/meso-home/meso/cron/logs/kml_er2_30.log 2>&1
+##* * * * * /home/disk/bob/impacts/bin/kml_create/run.make_kml_er2_fltTrk_fill_v5_rt_60min.csh >> /home/disk/meso-home/meso/cron/logs/kml_er2_60.log 2>&1
+##* * * * * /home/disk/bob/impacts/bin/kml_create/run.make_kml_er2_fltTrk_fill_v6_rt.csh >> /home/disk/meso-home/meso/cron/logs/kml_er2_full.log 2>&1
+##
+## CATALOG
+#*/10 * * * * /home/disk/bob/impacts/bin/kml_create/run.rename_cat_images_and_ftp.csh >> /home/disk/meso-home/meso/cron/logs/rename_cat_images.log 2>&1
+#30 */1 * * * /home/disk/bob/impacts/bin/kml_create/run.make_kml_asos_ts.csh >> /home/disk/meso-home/meso/cron/logs/asos_kml.log 2>&1
+#30 */1 * * * /home/disk/bob/impacts/bin/kml_create/run.make_kml_noaa_sndg.csh >> /home/disk/meso-home/meso/cron/logs/noaa_sndg_kml.log 2>&1
+##
+## OTHER
+##*/10 * * * * /usr/local/lrose/bin/snuff InputWatcher.glm16 >> /home/disk/meso-home/meso/cron/logs/snuff_glm.log 2>&1
+##
+#####################################################################
+##
+## Joe's addition for 2022 - href images - can't get this to run so Joe's doing it
+##
+###30 8,20 * * * . $HOME/.bashrc && $HOME/impacts/python_scripts/forecasting/run_href_plots.sh
+## The cron is running at 830 am[pm] (0430 & 1640 UTC) to ensure all the images are available from the SPC site.
+##30 8,20 * * * . /home/disk/bob/impacts/bin/run.href_plots.csh >> /home/disk/meso-home/meso/cron/logs/href.log
+##30 8,20 * * * . ~jfinlon/.bashrc && /home/disk/bob/impacts/bin/run.href_plots.sh
+###
+######################################################################
+
+## GOES-R Mesoscale sector image generation - when applicable
+## Currently running this as ldm on bob - edit crontab file at ldm@bob:/~ldm/cron/crontab.ldm.bob
+## M1
+##* * 14,15 1 * csh -c "/home/disk/ldm/local/bin/new_sat/timed_run.pl -delay 240 20220114120000 20220115120000 /home/disk/ldm/local/bin/new_sat/testmeso.csh true_color_night 1 YYYYMMDD HH /home/disk/data/images/sat_east_meso_impacts" 1> /home/disk/bob/impacts/logs/fortesting/M1.log 2>&1
+##
+## M2
+##* * 25,26 2 * csh -c "/home/disk/ldm/local/bin/new_sat/timed_run.pl -delay 240 20200225120000 20200226120200 /home/disk/ldm/local/bin/new_sat/testmeso.csh true_color_night 2 YYYYMMDD HH /home/disk/data/images/sat_east_meso_impacts" 1> /home/disk/bob/impacts/logs/fortesting/M2.log 2>&1

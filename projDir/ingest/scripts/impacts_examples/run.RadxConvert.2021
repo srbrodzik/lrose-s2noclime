@@ -1,0 +1,38 @@
+#!/bin/csh
+
+RadxConvert -v -params ../params/RadxConvert.kdox.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+RadxConvert -v -params ../params/RadxConvert.kenx.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+RadxConvert -v -params ../params/RadxConvert.kfcx.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+RadxConvert -v -params ../params/RadxConvert.kgyx.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+RadxConvert -v -params ../params/RadxConvert.kjkl.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+RadxConvert -v -params ../params/RadxConvert.klwx.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+RadxConvert -v -params ../params/RadxConvert.kmhx.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+RadxConvert -v -params ../params/RadxConvert.kokx.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+RadxConvert -v -params ../params/RadxConvert.kpbz.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+RadxConvert -v -params ../params/RadxConvert.krax.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+RadxConvert -v -params ../params/RadxConvert.krlx.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+
+RadxConvert -v -params ../params/RadxConvert.ktyx.archive \
+            -start "2021 02 27 00 00 00" -end "2021 03 01 00 00 00"
+

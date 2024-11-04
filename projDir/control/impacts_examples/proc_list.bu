@@ -1,0 +1,117 @@
+######################################################################
+# IMPACTS proc_list
+##############################################################################
+# SYSTEM processes
+#
+#Janitor      logs       start_Janitor.logs        kill_Janitor \\
+Scout         primary    start_Scout               kill_Scout 
+DataMapper    primary    start_DataMapper          kill_DataMapper
+#
+######################################################################
+# SERVER processes - copied from RELAMPAGO
+#
+DsServerMgr      primary  start_inst(no-params)     snuff_inst
+DsProxyServer    primary  start_inst(no-params)     snuff_inst
+DsMdvServer      manager  start_inst(no-params)     snuff_inst
+#NcMdvServer      manager  start_inst(no-params)     snuff_inst
+DsFmqServer      manager  start_inst(no-params)     snuff_inst
+DsSpdbServer     manager  start_inst(no-params)     snuff_inst
+DsFCopyServer    manager  start_inst(no-params)     snuff_inst
+Metar2Symprod    manager  start_inst(no-params)     snuff_inst
+Rhi2Symprod      manager  start_inst(no-params)     snuff_inst
+AcTrack2Symprod  manager  start_inst(no-params)     snuff_inst
+SunCal2Symprod   manager  start_inst(no-params)     snuff_inst
+Ltg2Symprod      manager  start_inst(no-params)     snuff_inst
+#
+######################################################################
+#
+# NEXRAD file ingest - from MRMS
+#
+InputWatcher	mrms_base	start_inst(ingest)        snuff_inst
+InputWatcher	mrms_refl	start_inst(ingest)        snuff_inst
+#
+#MrmsGribIngest	mrms_refl	start_inst(ingest)        snuff_inst	     
+#
+######################################################################
+#
+# Catalog images
+#
+LdataMultWatcher  catalog_mrms_refl		start_inst(catalog) snuff_inst
+#LdataWatcher      catalog_mrms_images  	start_inst(catalog) snuff_inst
+LdataMultWatcher  catalog_goes16_ch01           start_inst(catalog) snuff_inst
+#LdataWatcher      catalog_goes16_ch01_images   start_inst(catalog) snuff_inst
+LdataMultWatcher  catalog_goes16_ch13		start_inst(catalog) snuff_inst
+#LdataWatcher      catalog_goes16_ch13_images   start_inst(catalog) snuff_inst
+
+######################################################################
+#
+# Ingesting NPOL data
+#
+#InputWatcher    npol_ppi   start_inst(ingest)   snuff_inst
+#InputWatcher    npol_rhi   start_inst(ingest)   snuff_inst
+#
+#RadxConvert	npol_ppi   start_inst(ingest)	snuff_inst
+#RadxConvert	npol_rhi   start_inst(ingest)	snuff_inst
+#
+#Rhi2Spdb	npol	   start_inst(ingest)	snuff_inst
+#
+######################################################################
+#
+# Ingesting the GOES data
+#
+InputWatcher    goes16_ch01   start_inst(ingest)   snuff_inst
+InputWatcher    goes16_ch08   start_inst(ingest)   snuff_inst
+InputWatcher    goes16_ch13   start_inst(ingest)   snuff_inst
+#
+GoesRnetCDF2Mdv goes16_ch01   start_inst(ingest)   snuff_inst
+GoesRnetCDF2Mdv goes16_ch08   start_inst(ingest)   snuff_inst
+GoesRnetCDF2Mdv goes16_ch13   start_inst(ingest)   snuff_inst
+#
+Mdv2NetCDF      goes16_ch01   start_inst(ingest)   snuff_inst
+Mdv2NetCDF      goes16_ch08   start_inst(ingest)   snuff_inst
+Mdv2NetCDF      goes16_ch13   start_inst(ingest)   snuff_inst
+#
+InputWatcher    glm16         start_inst(ingest)   snuff_inst
+GoesRGLM2Spdb   glm16         start_inst(ingest)   snuff_inst
+#
+######################################################################
+# Aircraft (P3)  data ingest
+#
+download_iwg1.py N426NA start_download_iwg1.py.N426NA  snuff_inst
+AcData2Spdb      N426NA start_inst(ingest)             snuff_inst
+#
+# Aircraft (ER2) data ingest
+#
+download_iwg1.py N806NA start_download_iwg1.py.N806NA  snuff_inst
+AcData2Spdb      N806NA start_inst(ingest)             snuff_inst
+#
+######################################################################
+#
+# WRF GFS domains 1, 2 & 3
+#
+InputWatcher     wrf_gfs_36km    start_inst(ingest)  snuff_inst
+InputWatcher     wrf_gfs_12km    start_inst(ingest)  snuff_inst
+InputWatcher     wrf_gfs_04km    start_inst(ingest)  snuff_inst
+#
+Wrf2Mdv          gfs_36km        start_inst(ingest)  snuff_inst
+Wrf2Mdv          gfs_12km        start_inst(ingest)  snuff_inst
+#
+######################################################################
+#
+# WRF NAM domains 1, 2 & 3
+#
+InputWatcher     wrf_nam_36km    start_inst(ingest)  snuff_inst
+InputWatcher     wrf_nam_12km    start_inst(ingest)  snuff_inst
+InputWatcher     wrf_nam_04km    start_inst(ingest)  snuff_inst
+#
+#Wrf2Mdv          nam_36km        start_inst(ingest)  snuff_inst
+#Wrf2Mdv          nam_12km        start_inst(ingest)  snuff_inst
+#
+##############################################################################
+#
+# DISPLAY processes
+#
+CIDD            ops           start_CIDD.ops       snuff_inst     
+#
+##############################################################################
+

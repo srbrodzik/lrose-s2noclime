@@ -1,0 +1,192 @@
+######################################################################
+# IMPACTS proc_list
+##############################################################################
+# SYSTEM processes
+#
+#Janitor      logs       start_Janitor.logs        kill_Janitor \\
+Scout         primary    start_Scout               kill_Scout 
+DataMapper    primary    start_DataMapper          kill_DataMapper
+#
+######################################################################
+# SERVER processes - copied from RELAMPAGO
+#
+#DsServerMgr      primary  start_inst(no-params)     snuff_inst
+#DsProxyServer    primary  start_inst(no-params)     snuff_inst
+#DsMdvServer      manager  start_inst(no-params)     snuff_inst
+NcMdvServer       manager  start_inst(no-params)     snuff_inst
+DsFmqServer       manager  start_inst(no-params)     snuff_inst
+#DsSpdbServer     manager  start_inst(no-params)     snuff_inst
+DsFCopyServer     manager  start_inst(no-params)     snuff_inst
+Metar2Symprod     manager  start_inst(no-params)     snuff_inst
+Rhi2Symprod       manager  start_inst(no-params)     snuff_inst
+AcTrack2Symprod   manager  start_inst(no-params)     snuff_inst
+SunCal2Symprod    manager  start_inst(no-params)     snuff_inst
+Ltg2Symprod       manager  start_inst(no-params)     snuff_inst
+#
+######################################################################
+# NEXRAD file ingest - from AWS
+#
+RadxConvert   kakq       start_inst(ingest)        snuff_inst
+RadxConvert   kbgm       start_inst(ingest)        snuff_inst
+RadxConvert   kbox       start_inst(ingest)        snuff_inst
+RadxConvert   kbuf       start_inst(ingest)        snuff_inst
+RadxConvert   kccx       start_inst(ingest)        snuff_inst
+RadxConvert   kcle       start_inst(ingest)        snuff_inst
+RadxConvert   kcxx       start_inst(ingest)        snuff_inst
+RadxConvert   kdix       start_inst(ingest)        snuff_inst
+RadxConvert   kdox       start_inst(ingest)        snuff_inst
+RadxConvert   kdtx       start_inst(ingest)        snuff_inst
+RadxConvert   kdvn       start_inst(ingest)        snuff_inst
+RadxConvert   kenx       start_inst(ingest)        snuff_inst
+RadxConvert   kgrb       start_inst(ingest)        snuff_inst
+RadxConvert   kgrr       start_inst(ingest)        snuff_inst
+RadxConvert   kgyx       start_inst(ingest)        snuff_inst
+RadxConvert   kiln       start_inst(ingest)        snuff_inst
+RadxConvert   kilx       start_inst(ingest)        snuff_inst
+RadxConvert   kind       start_inst(ingest)        snuff_inst
+RadxConvert   kiwx       start_inst(ingest)        snuff_inst
+RadxConvert   klot       start_inst(ingest)        snuff_inst
+RadxConvert   klwx       start_inst(ingest)        snuff_inst
+RadxConvert   kmhx       start_inst(ingest)        snuff_inst
+RadxConvert   kmkx       start_inst(ingest)        snuff_inst
+RadxConvert   kokx       start_inst(ingest)        snuff_inst
+RadxConvert   kpbz       start_inst(ingest)        snuff_inst
+RadxConvert   krax       start_inst(ingest)        snuff_inst
+RadxConvert   ktyx       start_inst(ingest)        snuff_inst
+RadxConvert   kvwx       start_inst(ingest)        snuff_inst
+#
+###############################################################################
+# Cartesian gridding of NEXRAD data
+#
+Radx2Grid      kakq      start_inst(ingest)        snuff_inst
+Radx2Grid      kbgm      start_inst(ingest)        snuff_inst
+Radx2Grid      kbox      start_inst(ingest)        snuff_inst
+Radx2Grid      kbuf      start_inst(ingest)        snuff_inst
+Radx2Grid      kccx      start_inst(ingest)        snuff_inst
+Radx2Grid      kcle      start_inst(ingest)        snuff_inst
+Radx2Grid      kcxx      start_inst(ingest)        snuff_inst
+Radx2Grid      kdix      start_inst(ingest)        snuff_inst
+Radx2Grid      kdox      start_inst(ingest)        snuff_inst
+Radx2Grid      kdtx      start_inst(ingest)        snuff_inst
+Radx2Grid      kdvn      start_inst(ingest)        snuff_inst
+Radx2Grid      kenx      start_inst(ingest)        snuff_inst
+Radx2Grid      kgrb      start_inst(ingest)        snuff_inst
+Radx2Grid      kgrr      start_inst(ingest)        snuff_inst
+Radx2Grid      kgyx      start_inst(ingest)        snuff_inst
+Radx2Grid      kiln      start_inst(ingest)        snuff_inst
+Radx2Grid      kilx      start_inst(ingest)        snuff_inst
+Radx2Grid      kind      start_inst(ingest)        snuff_inst
+Radx2Grid      kiwx      start_inst(ingest)        snuff_inst
+Radx2Grid      klot      start_inst(ingest)        snuff_inst
+Radx2Grid      klwx      start_inst(ingest)        snuff_inst
+Radx2Grid      kmhx      start_inst(ingest)        snuff_inst
+Radx2Grid      kmkx      start_inst(ingest)        snuff_inst
+Radx2Grid      kokx      start_inst(ingest)        snuff_inst
+Radx2Grid      kpbz      start_inst(ingest)        snuff_inst
+Radx2Grid      krax      start_inst(ingest)        snuff_inst
+Radx2Grid      ktyx      start_inst(ingest)        snuff_inst
+Radx2Grid      kvwx      start_inst(ingest)        snuff_inst
+#
+###############################################################################
+# Create mosaic
+#
+MdvMerge2     mosaic		start_inst(ingest)        snuff_inst
+MdvMerge2     mosaic_midwest    start_inst(ingest)        snuff_inst
+#
+######################################################################
+#
+# Ingesting NPOL data
+#
+InputWatcher    npol_ppi   start_inst(ingest)   snuff_inst
+InputWatcher    npol_rhi   start_inst(ingest)   snuff_inst
+#
+RadxConvert	npol_ppi   start_inst(ingest)	snuff_inst
+RadxConvert	npol_rhi   start_inst(ingest)	snuff_inst
+#
+Rhi2Spdb	npol	   start_inst(ingest)	snuff_inst
+#
+######################################################################
+#
+# Ingesting the GOES data
+#
+InputWatcher    goes16_ch01   start_inst(ingest)   snuff_inst
+InputWatcher    goes16_ch08   start_inst(ingest)   snuff_inst
+InputWatcher    goes16_ch09   start_inst(ingest)   snuff_inst
+InputWatcher    goes16_ch10   start_inst(ingest)   snuff_inst
+InputWatcher    goes16_ch13   start_inst(ingest)   snuff_inst
+#InputWatcher    goes16_ch14   start_inst(ingest)   snuff_inst
+#
+GoesRnetCDF2Mdv goes16_ch01   start_inst(ingest)   snuff_inst
+GoesRnetCDF2Mdv goes16_ch08   start_inst(ingest)   snuff_inst
+GoesRnetCDF2Mdv goes16_ch09   start_inst(ingest)   snuff_inst
+GoesRnetCDF2Mdv goes16_ch10   start_inst(ingest)   snuff_inst
+GoesRnetCDF2Mdv goes16_ch13   start_inst(ingest)   snuff_inst
+#GoesRnetCDF2Mdv goes16_ch14   start_inst(ingest)   snuff_inst
+#
+Mdv2NetCDF      goes16_ch01   start_inst(ingest)   snuff_inst
+Mdv2NetCDF      goes16_ch08   start_inst(ingest)   snuff_inst
+Mdv2NetCDF      goes16_ch09   start_inst(ingest)   snuff_inst
+Mdv2NetCDF      goes16_ch10   start_inst(ingest)   snuff_inst
+Mdv2NetCDF      goes16_ch13   start_inst(ingest)   snuff_inst
+#Mdv2NetCDF      goes16_ch14   start_inst(ingest)   snuff_inst
+#
+InputWatcher    glm16         start_inst(ingest)   snuff_inst
+GoesRGLM2Spdb   glm16         start_inst(ingest)   snuff_inst
+#
+######################################################################
+# Aircraft (P3)  data ingest
+#
+download_iwg1.py N426NA start_download_iwg1.py.N426NA  snuff_inst
+AcData2Spdb      N426NA start_inst(ingest)             snuff_inst
+#
+# Aircraft (ER2) data ingest
+#
+download_iwg1.py N809NA start_download_iwg1.py.N809NA  snuff_inst
+AcData2Spdb      N809NA start_inst(ingest)             snuff_inst
+#
+######################################################################
+#
+# WRF GFS domains 1, 2 & 3
+#
+InputWatcher     wrf_gfs_36km    start_inst(ingest)  snuff_inst
+InputWatcher     wrf_gfs_12km    start_inst(ingest)  snuff_inst
+InputWatcher     wrf_gfs_04km    start_inst(ingest)  snuff_inst
+#
+Wrf2Mdv          gfs_36km        start_inst(ingest)  snuff_inst
+Wrf2Mdv          gfs_12km        start_inst(ingest)  snuff_inst
+#
+#Mdv2SoundingSpdb wrf_gfs_36km    start_inst(ingest)  snuff_inst
+#Mdv2SoundingSpdb wrf_gfs_12km    start_inst(ingest)  snuff_inst
+#
+######################################################################
+#
+# WRF NAM domains 1, 2 & 3
+#
+InputWatcher     wrf_nam_36km    start_inst(ingest)  snuff_inst
+InputWatcher     wrf_nam_12km    start_inst(ingest)  snuff_inst
+InputWatcher     wrf_nam_04km    start_inst(ingest)  snuff_inst
+#
+#Wrf2Mdv          nam_36km        start_inst(ingest)  snuff_inst
+#Wrf2Mdv          nam_12km        start_inst(ingest)  snuff_inst
+#
+#Mdv2SoundingSpdb wrf_gfs_36km    start_inst(ingest)  snuff_inst
+#Mdv2SoundingSpdb wrf_gfs_12km    start_inst(ingest)  snuff_inst
+#
+######################################################################
+# PID and rain rate
+#
+#RadxPartRain       npol.sur        start_inst(partrain)     snuff_inst
+#RadxPartRain       npol.rhi        start_inst(partrain)     snuff_inst
+#RadxPartRain       klgx            start_inst(partrain)     snuff_inst
+#RadxPartRain       katx            start_inst(partrain)     snuff_inst
+#
+######################################################################
+#
+# Lightning rate grid
+#LtgSpdb2Mdv       relampago   start_inst(alg)    snuff_inst
+#
+##############################################################################
+# DISPLAY processes
+#
+#CIDD            ops           start_CIDD.ops       snuff_inst     
+

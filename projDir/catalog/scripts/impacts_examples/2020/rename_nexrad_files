@@ -1,0 +1,5 @@
+#!/bin/csh
+
+# NEXRAD mosaics
+mmv "gis.DBZ_max_column.DBZ_max_column-TRANS.NEXRAD_MOSAIC.*.png" "gis.NEXRAD_mosaic.#1.DBZ.png"
+

@@ -1,0 +1,32 @@
+#!/bin/csh
+
+GoesRnetCDF2Mdv -v -params ../params/GoesRnetCDF2Mdv.goes16_ch10.archive -f /home/disk/bob/impacts/raw/goes16/CONUS/Channel10/20210116/*.nc
+
+GoesRnetCDF2Mdv -v -params ../params/GoesRnetCDF2Mdv.goes16_ch10.archive -f /home/disk/bob/impacts/raw/goes16/CONUS/Channel10/20210120/*.nc
+
+GoesRnetCDF2Mdv -v -params ../params/GoesRnetCDF2Mdv.goes16_ch10.archive -f /home/disk/bob/impacts/raw/goes16/CONUS/Channel10/20210122/*.nc
+
+GoesRnetCDF2Mdv -v -params ../params/GoesRnetCDF2Mdv.goes16_ch10.archive -f /home/disk/bob/impacts/raw/goes16/CONUS/Channel10/20210126/*.nc
+
+GoesRnetCDF2Mdv -v -params ../params/GoesRnetCDF2Mdv.goes16_ch10.archive -f /home/disk/bob/impacts/raw/goes16/CONUS/Channel10/20210127/*.nc
+
+GoesRnetCDF2Mdv -v -params ../params/GoesRnetCDF2Mdv.goes16_ch10.archive -f /home/disk/bob/impacts/raw/goes16/CONUS/Channel10/20210128/*.nc
+
+GoesRnetCDF2Mdv -v -params ../params/GoesRnetCDF2Mdv.goes16_ch10.archive -f /home/disk/bob/impacts/raw/goes16/CONUS/Channel10/20210131/*.nc
+
+GoesRnetCDF2Mdv -v -params ../params/GoesRnetCDF2Mdv.goes16_ch10.archive -f /home/disk/bob/impacts/raw/goes16/CONUS/Channel10/20210201/*.nc
+
+GoesRnetCDF2Mdv -v -params ../params/GoesRnetCDF2Mdv.goes16_ch10.archive -f /home/disk/bob/impacts/raw/goes16/CONUS/Channel10/20210202/*.nc
+
+GoesRnetCDF2Mdv -v -params ../params/GoesRnetCDF2Mdv.goes16_ch10.archive -f /home/disk/bob/impacts/raw/goes16/CONUS/Channel10/20210207/*.nc
+
+GoesRnetCDF2Mdv -v -params ../params/GoesRnetCDF2Mdv.goes16_ch10.archive -f /home/disk/bob/impacts/raw/goes16/CONUS/Channel10/20210209/*.nc
+
+GoesRnetCDF2Mdv -v -params ../params/GoesRnetCDF2Mdv.goes16_ch10.archive -f /home/disk/bob/impacts/raw/goes16/CONUS/Channel10/20210215/*.nc
+
+GoesRnetCDF2Mdv -v -params ../params/GoesRnetCDF2Mdv.goes16_ch10.archive -f /home/disk/bob/impacts/raw/goes16/CONUS/Channel10/20210216/*.nc
+
+GoesRnetCDF2Mdv -v -params ../params/GoesRnetCDF2Mdv.goes16_ch10.archive -f /home/disk/bob/impacts/raw/goes16/CONUS/Channel10/20210218/*.nc
+
+GoesRnetCDF2Mdv -v -params ../params/GoesRnetCDF2Mdv.goes16_ch10.archive -f /home/disk/bob/impacts/raw/goes16/CONUS/Channel10/20210222/*.nc
+

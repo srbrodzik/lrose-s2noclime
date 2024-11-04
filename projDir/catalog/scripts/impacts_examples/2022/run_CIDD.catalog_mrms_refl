@@ -1,0 +1,92 @@
+#! /bin/csh
+
+# Process any command line arguments.  The only allowed argument is a time
+# string to be sent to CIDD for processing archive data.
+
+# Ensure virtual X server is running and set display accordingly. 
+
+Xvfb :2000 -screen 0 2000x2000x24 -pixdepths 24 &
+setenv DISPLAY :2000
+set_font_path
+
+#------------------------------------------------------------------------
+# THIS DOESN'T WORK
+#start_Xvfb
+#set display_num = 1000
+#setenv DISPLAY :${display_num}.0
+
+setenv PLATFORM_NAME MRMS_MOSAIC
+setenv NUM_MENU_BAR_CELLS 1
+
+# use CIDD to create normal images
+
+setenv CATEGORY radar
+setenv RENDER_LTG TRUE
+setenv CIDD_LABEL IMPACTS
+setenv CREATING_IMAGES 1
+setenv TRANSPARENT_IMAGES 0
+setenv IS_TRANS
+setenv PLOT_MAPS 1
+setenv FOREGROUND_COLOR white
+setenv BACKGROUND_COLOR grey50
+setenv MISSING_DATA_COLOR transparent
+setenv RANGE_RING_FLAG 0
+setenv SHOW_HEIGHT_SEL 0
+setenv TIME_INTERVAL 10.0
+setenv IMAGE_DIR ${DATA_DIR}/raw/images
+setenv OUTPUT_GEO_XML 0
+setenv MARGIN_WIDTH 0
+setenv HORIZ_DEFAULT_HEIGHT 1500
+setenv COLOR_SCALE_WIDTH 0
+
+setenv PROJECTION MERCATOR
+setenv ZOOM_LIMITS_IN_LATLON 1
+
+setenv ORIGIN_LAT 0.0
+setenv ORIGIN_LON -83.0
+
+setenv MINX -100.0
+setenv MAXX -66.0
+setenv MINY 32.0
+setenv MAXY 48.0
+
+cd $PROJ_DIR/catalog/params
+#CIDD -p CIDD.catalog_mrms -i mosaic.web.normal -fn fixed -v 2
+CIDD -p CIDD.catalog_mrms_refl -i catalog_mrms_refl -fn fixed -v 2 |& \
+    LogFilter -d $ERRORS_LOG_DIR -p CIDD -i catalog_mrms_refl_normal
+
+# use CIDD to create transparent images
+
+setenv CATEGORY gis
+setenv CIDD_LABEL IMPACTS
+setenv CREATING_IMAGES 1
+setenv TRANSPARENT_IMAGES 1
+setenv IS_TRANS -TRANS
+setenv PLOT_MAPS 0
+setenv FOREGROUND_COLOR red
+setenv BACKGROUND_COLOR black
+setenv MISSING_DATA_COLOR transparent
+setenv RANGE_RING_FLAG 0
+setenv SHOW_HEIGHT_SEL 0
+setenv TIME_INTERVAL 10.0
+setenv IMAGE_DIR ${DATA_DIR}/raw/images
+setenv OUTPUT_GEO_XML 0
+setenv MARGIN_WIDTH 0
+setenv HORIZ_DEFAULT_HEIGHT 1500
+setenv COLOR_SCALE_WIDTH 0
+
+setenv PROJECTION MERCATOR
+setenv ZOOM_LIMITS_IN_LATLON 1
+
+setenv ORIGIN_LAT 0.0
+setenv ORIGIN_LON -83.0
+
+setenv MINX -100.0
+setenv MAXX -66.0
+setenv MINY 32.0
+setenv MAXY 48.0
+
+cd $PROJ_DIR/catalog/params
+#CIDD -p CIDD.catalog_mrms -i mosaic.web.transparent -fn fixed -v 2
+CIDD -p CIDD.catalog_mrms_refl -i catalog_mrms_refl -fn fixed -v 2 |& \
+    LogFilter -d $ERRORS_LOG_DIR -p CIDD -i catalog_mrms_refl_transparent
